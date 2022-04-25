@@ -7,7 +7,7 @@ let car_titulo =[];
 
 function init(){
 
-    mostrarBotones();
+    //mostrarBotones();
     mostrarUsuarios();
     actualizarprecio(total);
     recuperar();
@@ -17,7 +17,7 @@ function init(){
  function mostrarBotones()
 {
     const nodoBoton = document.createElement("button"); //crear boton
-    nodoBoton.setAttribute("class","z_index");
+    nodoBoton.setAttribute("class","zindex");
     nodoBoton.innerHTML="Ordenar Por Precio"; // nombre del boton
     nodoBoton.addEventListener("click", ()=>{ 
        ordenarASC(); //evento 
@@ -110,6 +110,7 @@ function actualizarprecio(total)
 {
     const precio = document.querySelector(".TOTAL");
     precio.innerHTML = ` EL PRECIO TOTAL ES :${total}`; 
+    console.log(car_titulo);
 }
 
 
@@ -118,7 +119,7 @@ function recuperar() {
     let recuperoLS = JSON.parse(localStorage.getItem('titulo'))
     if(recuperoLS){
       recuperoLS.forEach(item=>{
-          console.log(item.nombre );
+          console.log(item.titulo );
           Comprar(item.precio,item.titulo, item.años);
       })
     }
